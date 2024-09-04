@@ -1,4 +1,4 @@
-version: "4"
+version: "3.8"
 
 services:
   db:
@@ -20,4 +20,17 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PW}
     ports:
       - "5050:80"
+    restart: always
+
+  app:
+    container_name: go_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+       - .:/app
+    depends_on:
+      - db
     restart: always

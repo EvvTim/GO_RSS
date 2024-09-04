@@ -1,0 +1,10 @@
+[build]
+bin = "main"
+cmd = "go build -o main ."
+
+[log]
+time = true
+
+[watch]
+include = ["*.go"]
+exclude = ["tmp/**"]
